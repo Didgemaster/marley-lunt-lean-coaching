@@ -1,59 +1,51 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const services = [
   {
-    title: "1:1 Lean Coaching",
+    title: '1:1 Lean Coaching',
     description:
-      "Personalized coaching sessions to help individuals apply lean principles to their work and routines.",
+      'Personalized sessions to apply lean principles directly to your work and decision-making.',
   },
   {
-    title: "Process Workshop",
+    title: 'Process Workshop',
     description:
-      "Guided workshops to surface waste, map value, and build an actionable improvement backlog.",
+      'Guided sessions to surface waste, map value, and create an actionable improvement backlog.',
   },
   {
-    title: "Team Sprint",
+    title: 'Team Sprint',
     description:
-      "Short, focused sprints that help teams reframe problems and ship measurable results with lean practice.",
+      'Focused sprints that help teams reframe problems and ship measurable results faster.',
   },
   {
-    title: "Systems Mapping",
+    title: 'Systems Mapping',
     description:
-      "Visual frameworks to understand how work flows through your organization so bottlenecks are easier to target.",
+      'Visual frameworks to understand work flow across your organization, so bottlenecks become easier to target.',
   },
-];
-
-const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
-];
+]
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-neutral-50 text-neutral-900">
-      <header className="sticky top-0 z-20 border-b border-neutral-200/80 bg-neutral-50/80 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <div className="min-h-screen bg-white text-neutral-900">
+      <header className="sticky top-0 z-20 border-b border-neutral-200/80 bg-white/80 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <span className="text-sm font-semibold tracking-wide uppercase">
-            Marley Lunt
+            Marley Lunt Lean Coaching
           </span>
           <nav className="flex items-center gap-6 text-sm">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-neutral-500"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <Link href="#services" className="transition-colors hover:text-neutral-500">
+              Services
+            </Link>
+            <Link href="#contact" className="transition-colors hover:text-neutral-500">
+              Contact
+            </Link>
           </nav>
         </div>
       </header>
 
       <main>
-        <section className="relative overflow-hidden border-b border-neutral-200/80 bg-white">
-          <div className="mx-auto max-w-5xl px-6 py-24">
-            <div className="max-w-2xl">
+        <section className="border-b border-neutral-200/80 bg-neutral-50">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-widest text-neutral-500">
                 Lean Coaching
               </p>
@@ -61,36 +53,29 @@ export default function Home() {
                 Build clarity, remove waste, and ship what matters.
               </h1>
               <p className="mt-6 text-lg text-neutral-600">
-                Marley Lunt helps teams and individuals apply lean thinking with
-                practical coaching, clear process design, and short, measurable
-                improvement cycles.
+                Marley Lunt helps individuals and teams apply lean thinking through practical coaching,
+                clear process design, and short, measurable improvement cycles.
               </p>
-              <div className="mt-10">
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <Link
-                    href="#contact"
-                    className="inline-flex h-12 w-full items-center justify-center rounded-full bg-neutral-900 px-6 text-sm font-medium text-neutral-50 transition-colors hover:bg-neutral-700 sm:w-auto"
-                  >
-                    Start a conversation
-                  </Link>
-                  <Link
-                    href="#services"
-                    className="inline-flex h-12 w-full items-center justify-center rounded-full border border-neutral-200 px-6 text-sm font-medium transition-colors hover:border-neutral-300 hover:bg-neutral-100 sm:w-auto"
-                  >
-                    Explore coaching options
-                  </Link>
-                </div>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Link
+                  href="#contact"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-full bg-neutral-900 px-6 text-sm font-medium text-neutral-50 transition-colors hover:bg-neutral-700 sm:w-auto"
+                >
+                  Start a conversation
+                </Link>
+                <Link
+                  href="#services"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-full border border-neutral-200 px-6 text-sm font-medium transition-colors hover:border-neutral-300 hover:bg-neutral-100 sm:w-auto"
+                >
+                  Explore services
+                </Link>
               </div>
-            </div>
-            <div className="pointer-events-none absolute inset-0 -skew-y-3 opacity-60 select-none">
-              <div className="absolute -right-24 top-20 h-96 w-96 rounded-3xl bg-neutral-100 blur-3xl" />
-              <div className="absolute -left-16 top-48 h-80 w-80 rounded-3xl bg-neutral-200/60 blur-3xl" />
             </div>
           </div>
         </section>
 
-        <section id="services" className="border-b border-neutral-200/80 bg-neutral-50">
-          <div className="mx-auto max-w-5xl px-6 py-24">
+        <section id="services" className="border-b border-neutral-200/80 bg-white">
+          <div className="mx-auto max-w-6xl px-6 py-24">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-widest text-neutral-500">
                 Services
@@ -99,15 +84,16 @@ export default function Home() {
                 Coaching engagements built for real work.
               </h2>
               <p className="mt-4 text-lg text-neutral-600">
-                Every engagement is customized, but these are the formats that
-                create the most consistent results.
+                Every engagement is customized to your context, but these formats create the most
+                consistent, durable improvement.
               </p>
             </div>
+
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {services.map((service) => (
                 <div
                   key={service.title}
-                  className="rounded-2xl border border-neutral-200/80 bg-white p-6 transition-colors hover:border-neutral-300"
+                  className="rounded-2xl border border-neutral-200/80 bg-neutral-50 p-6 transition-colors hover:border-neutral-300"
                 >
                   <h3 className="text-lg font-semibold">{service.title}</h3>
                   <p className="mt-2 text-neutral-600">{service.description}</p>
@@ -117,21 +103,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="bg-white">
-          <div className="mx-auto max-w-5xl px-6 py-24">
-            <div className="rounded-2xl border border-neutral-200/80 bg-neutral-50 p-8 sm:p-12">
+        <section id="contact" className="bg-neutral-50">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <div className="rounded-2xl border border-neutral-200/80 bg-white p-8 sm:p-12">
               <div className="max-w-2xl">
                 <p className="text-sm font-semibold uppercase tracking-widest text-neutral-500">
                   Contact
                 </p>
-                <h2 className="mt-3 text-3xl font-semibold tracking-tight">
-                  Next step
-                </h2>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight">Start here</h2>
                 <p className="mt-4 text-lg text-neutral-600">
-                  Ready to talk about your project or team? Reach out and share
-                  what you are trying to improve. Expect a clear, practical
-                  response.
+                  Share what you’re trying to improve. Expect a direct, practical response about the
+                  best coaching path for your situation.
                 </p>
+
                 <form className="mt-10 flex flex-col gap-4">
                   <label className="flex flex-col gap-2 text-sm font-medium">
                     <span>Name</span>
@@ -173,14 +157,14 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-neutral-200/80 bg-neutral-50">
-        <div className="mx-auto max-w-5xl px-6 py-8 text-sm text-neutral-500">
+      <footer className="border-t border-neutral-200/80 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-neutral-500">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <span>© {new Date().getFullYear()} Marley Lunt Lean Coaching</span>
-            <span>Crafted with practical iteration.</span>
+            <span>Practical iteration, measurable results.</span>
           </div>
         </div>
       </footer>
     </div>
-  );
+  )
 }

@@ -47,10 +47,28 @@ const testimonials = [
   },
 ];
 
+const leanBenefits = [
+  {
+    title: "Speed to Value",
+    description:
+      "Focus effort on the smallest useful change that creates measurable progress.",
+  },
+  {
+    title: "Less Waste",
+    description:
+      "Expose handoffs, delays, and unclear work so teams can remove friction with confidence.",
+  },
+  {
+    title: "Team Alignment",
+    description:
+      "Create shared language around priorities, constraints, and next best actions.",
+  },
+];
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100">
-      <section className="mx-auto max-w-5xl px-6 py-20">
+    <main className="min-h-screen overflow-x-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100">
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-24">
         <p className="mb-4 inline-flex rounded-full border border-gray-800 bg-gray-900/60 px-3 py-1 text-xs font-medium tracking-wide text-gray-300">
           Marley Lunt Lean Coaching
         </p>
@@ -60,17 +78,40 @@ export default function Home() {
         <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
           Practical lean coaching for individuals and teams — less noise, more progress.
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a href="/contact" className="rounded-lg bg-white px-5 py-3 font-medium text-gray-900 transition hover:bg-gray-100">
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+          <a href="/contact" className="w-full rounded-lg bg-white px-5 py-3 text-center font-medium text-gray-900 transition hover:bg-gray-100 sm:w-auto">
             Get started
           </a>
-          <a href="/services" className="rounded-lg border border-gray-700 px-5 py-3 font-medium text-gray-200 transition hover:border-gray-500">
+          <a href="#services" className="w-full rounded-lg border border-gray-700 px-5 py-3 text-center font-medium text-gray-200 transition hover:border-gray-500 sm:w-auto">
             Explore services
           </a>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-20">
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-24">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+            Why Lean
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-gray-50">
+            Improvement that fits the way work actually happens.
+          </h2>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          {leanBenefits.map((benefit) => (
+            <article
+              key={benefit.title}
+              className="rounded-lg border border-gray-800 bg-gray-900/40 p-6"
+            >
+              <h3 className="text-lg font-semibold text-gray-100">{benefit.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-gray-400">{benefit.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-24">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
             Testimonials
@@ -80,13 +121,16 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <article
               key={testimonial.name}
-              className="rounded-lg border border-gray-800 bg-gray-900/60 p-6 shadow-sm shadow-black/20"
+              className="relative overflow-hidden rounded-lg border border-gray-800 bg-gray-900/60 p-6 shadow-sm shadow-black/20 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-white/50 before:via-gray-500/40 before:to-transparent"
             >
-              <p className="text-sm leading-6 text-gray-300">&quot;{testimonial.quote}&quot;</p>
+              <span aria-hidden="true" className="block text-5xl font-serif leading-none text-gray-700">
+                &ldquo;
+              </span>
+              <p className="-mt-2 text-base leading-7 text-gray-200">{testimonial.quote}</p>
               <div className="mt-6 border-t border-gray-800 pt-4">
                 <h3 className="font-medium text-gray-100">{testimonial.name}</h3>
                 <p className="mt-1 text-sm text-gray-500">{testimonial.role}</p>
@@ -96,7 +140,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-5xl px-6 pb-24">
+      <section id="services" className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-24">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
             Services
@@ -121,6 +165,20 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <footer className="border-t border-gray-800/80 px-5 py-8 sm:px-6">
+        <div className="mx-auto flex max-w-5xl flex-col gap-4 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; 2026 Marley Lunt Lean Coaching</p>
+          <nav aria-label="Footer navigation" className="flex gap-5">
+            <a href="#services" className="transition hover:text-gray-300">
+              Services
+            </a>
+            <a href="/contact" className="transition hover:text-gray-300">
+              Contact
+            </a>
+          </nav>
+        </div>
+      </footer>
     </main>
   );
 }

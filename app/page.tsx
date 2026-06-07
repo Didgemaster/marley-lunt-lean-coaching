@@ -3,26 +3,61 @@ const services = [
     title: "1:1 Lean Coaching",
     description:
       "Personalized sessions to apply lean principles directly to your work and decision-making.",
+    icon: (
+      <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+    ),
   },
   {
     title: "Process Workshop",
     description:
       "Guided sessions to surface waste, map value, and create an actionable improvement backlog.",
+    icon: (
+      <svg className="h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+    ),
   },
   {
     title: "Team Sprint",
     description:
       "Focused sprints that help teams reframe problems and ship measurable results faster.",
+    icon: (
+      <svg className="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
   },
   {
     title: "Systems Mapping",
     description:
       "Visual frameworks to understand work flow across your organization, so bottlenecks become easier to target.",
+    icon: (
+      <svg className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+      </svg>
+    ),
   },
   {
     title: "Operational Cadence Review",
     description:
       "A focused reset for meetings, metrics, and decision loops so teams can spot constraints sooner.",
+    icon: (
+      <svg className="h-6 w-6 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8.89M9 11l3 3L22 4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Leadership Arch Framework",
+    description:
+      "A structured coaching approach built around four pillars — Awareness, Responsibility, Decision clarity, Actionability — helping leaders build repeatable decision-making habits.",
+    icon: (
+      <svg className="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 00-9 9v9h4v-9a5 5 0 0110 0v9h4v-9a9 9 0 00-9-9z M12 7v4" />
+      </svg>
+    ),
   },
 ];
 
@@ -153,14 +188,19 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
           {services.map((service) => (
             <article
               key={service.title}
-              className="rounded-lg border border-gray-800 bg-gray-900/50 p-6 transition hover:border-gray-700 hover:bg-gray-900/80"
+              className="rounded-lg border border-gray-800 bg-gray-900/50 p-6 transition hover:border-gray-700 hover:bg-gray-900/80 flex flex-col justify-between"
             >
-              <h3 className="text-lg font-semibold text-gray-100">{service.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-gray-400">{service.description}</p>
+              <div>
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-800/80 text-gray-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-100">{service.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-gray-400">{service.description}</p>
+              </div>
             </article>
           ))}
         </div>
